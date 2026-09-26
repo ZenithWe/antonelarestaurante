@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#6f2630" />
+  <meta name="description" content="Cardápio de salgados Antonella em Nova Lima. Monte sua sacola e envie a encomenda pelo WhatsApp." />
+  <title>Antonella Salgados | Fábrica de Salgados em Nova Lima</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="salgados.css" />
+  <link rel="manifest" href="manifest.json" />
+</head>
+<body class="salgados-page">
+  <div class="topbar">Fábrica de Salgados Antonella • Nova Lima • Pedidos pelo WhatsApp</div>
+
+  <header class="header salgados-header">
+    <a class="brand" href="index.html" aria-label="Voltar para Antonella Restaurante">
+      <span class="brand-mark">A</span>
+      <span class="brand-text"><strong>ANTONELLA</strong><small>SALGADOS</small></span>
+    </a>
+    <nav class="salgados-nav" aria-label="Ações do catálogo">
+      <a href="index.html" class="back-link">← Voltar</a>
+      <button class="bag-button" id="openBag" type="button">Sacola <span id="bagCount">0</span></button>
+      <a class="nav-cta" href="https://wa.me/5531984288362" target="_blank" rel="noopener">WhatsApp</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="salgados-hero">
+      <div class="salgados-hero-bg"></div>
+      <div class="container salgados-hero-content">
+        <div class="catalog-kicker">Cardápio digital • Sacola • WhatsApp</div>
+        <h1>Escolha seus <em>salgados.</em></h1>
+        <p>Confira as opções, monte sua sacola e envie sua encomenda organizada para a Antonella pelo WhatsApp.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#catalogo">Ver cardápio</a>
+          <button class="btn btn-ghost" id="heroBag" type="button">Abrir sacola 🛒</button>
+        </div>
+        <div class="catalog-note">Pedidos organizados por pacote com 10 unidades. Disponibilidade, prazo, retirada ou entrega são confirmados pela Antonella.</div>
+      </div>
+    </section>
+
+    <section class="catalog-intro">
+      <div class="container intro-grid">
+        <div class="intro-copy">
+          <p class="eyebrow">Fábrica de Salgados Antonella</p>
+          <h2>Salgados para você e para o seu negócio.</h2>
+          <p>Produzidos pela Antonella em Nova Lima para consumo, eventos, lanchonetes e estabelecimentos comerciais.</p>
+          <div class="catalog-chips">
+            <span>Pacote 10 unidades</span>
+            <span>Para você e seu negócio</span>
+            <span>Pedido organizado</span>
+          </div>
+        </div>
+        <div class="intro-cards">
+          <article><span>📍</span><div><strong>Endereço</strong><p>Rua Antônio Jardim, 528 – Centro, Nova Lima – MG<br>Em frente à rodoviária.</p></div></article>
+          <article><span>🛒</span><div><strong>Como funciona</strong><p>Adicione os itens, informe data e horário e envie a sacola para confirmação pelo WhatsApp.</p></div></article>
+          <article><span>🥟</span><div><strong>Salgados Antonella</strong><p>Fritos e assados para consumo, empresas, eventos e estabelecimentos comerciais.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalog-section" id="catalogo">
+      <div class="container">
+        <div class="catalog-heading">
+          <div>
+            <p class="eyebrow">Escolha os itens</p>
+            <h2>Cardápio de salgados</h2>
+          </div>
+          <label class="catalog-search">
+            <span>⌕</span>
+            <input id="searchInput" type="search" placeholder="Buscar empada, coxinha, pastel..." autocomplete="off" />
+          </label>
+        </div>
+
+        <div class="catalog-grid" id="catalogGrid" aria-live="polite"></div>
+        <div class="empty-state" id="emptyState" hidden>Nenhum item encontrado. Tente outro nome ou adicione “Outros salgados” à sacola.</div>
+      </div>
+    </section>
+
+    <section class="guided-section">
+      <div class="container guided-panel">
+        <div>
+          <p class="eyebrow light-text">Atendimento guiado</p>
+          <h2>Pedido sem bagunça no WhatsApp.</h2>
+          <p>Você monta a sacola antes de chamar. A mensagem chega com itens, data, horário, bairro, forma de recebimento e observações.</p>
+        </div>
+        <div class="chat-preview" aria-label="Exemplo de conversa">
+          <div class="chat customer">Quero fazer um pedido de salgados para sábado.</div>
+          <div class="chat store">Monte sua sacola e envie para confirmar disponibilidade, valores e prazo.</div>
+          <div class="chat customer">Fechado. Já deixei tudo organizado.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <aside class="bag-drawer" id="bagDrawer" aria-hidden="true">
+    <div class="bag-backdrop" id="bagBackdrop"></div>
+    <div class="bag-panel" role="dialog" aria-modal="true" aria-labelledby="bagTitle">
+      <div class="bag-head">
+        <div>
+          <p>Antonella Restaurante</p>
+          <h2 id="bagTitle">Sacola de salgados</h2>
+        </div>
+        <button id="closeBag" type="button" aria-label="Fechar sacola">×</button>
+      </div>
+
+      <div class="bag-summary">
+        <span>Itens na sacola</span>
+        <strong id="bagItemsCount">0 item(ns)</strong>
+        <span>Total</span>
+        <strong>A confirmar</strong>
+      </div>
+
+      <div class="bag-items" id="bagItems"></div>
+
+      <form class="order-form" id="orderForm">
+        <div class="field-row">
+          <label>Nome<input id="customerName" required placeholder="Seu nome" /></label>
+          <label>Telefone / WhatsApp<input id="customerPhone" required placeholder="(31) 99999-9999" inputmode="tel" /></label>
+        </div>
+        <div class="field-row">
+          <label>Data desejada<input id="orderDate" required type="date" /></label>
+          <label>Horário desejado<input id="orderTime" required type="time" /></label>
+        </div>
+        <div class="field-row">
+          <label>Tipo
+            <select id="orderType" required>
+              <option value="">Selecione</option>
+              <option>Retirada</option>
+              <option>Entrega</option>
+            </select>
+          </label>
+          <label>Bairro / endereço<input id="orderAddress" placeholder="Ex: Centro, casa, empresa, salão..." /></label>
+        </div>
+        <label>Pagamento
+          <select id="paymentMethod">
+            <option value="">A combinar</option>
+            <option>Pix</option>
+            <option>Dinheiro</option>
+            <option>Cartão</option>
+          </select>
+        </label>
+        <label>Observações<textarea id="orderNotes" rows="3" placeholder="Detalhes da encomenda, referência do endereço, restrições ou outras informações..."></textarea></label>
+
+        <div class="bag-secondary-actions">
+          <button type="button" id="continueShopping">Continuar comprando</button>
+          <button type="button" id="clearBag">Limpar</button>
+        </div>
+        <button class="repeat-order" id="repeatLast" type="button">↻ Repetir última encomenda</button>
+        <button class="send-order" type="submit">Enviar encomenda pelo WhatsApp</button>
+      </form>
+    </div>
+  </aside>
+
+  <footer class="footer compact-footer">
+    <div class="container footer-bottom">
+      <span>Antonella Restaurante • Rua Antônio Jardim, 528 – Centro, Nova Lima – MG</span>
+      <a href="index.html">Voltar ao site principal</a>
+    </div>
+  </footer>
+
+  <script src="salgados.js"></script>
+</body>
+</html>
