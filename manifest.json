@@ -1,0 +1,9 @@
+{
+  "name": "Antonella Restaurante",
+  "short_name": "Antonella",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#fbf7f0",
+  "theme_color": "#6f2630",
+  "description": "Antonella Restaurante em Nova Lima"
+}
